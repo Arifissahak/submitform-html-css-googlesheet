@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data submit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <center>
+        <form method="post" action="" name="product" id="product">
+            <h1>EXPENCE CALCULATOR</h1>
+            <p style="font-size: 10px;">MONTHLY EXPENCE CLACULATOR</p>
+            
+            <label for="naem">MONTH</label>
+            <input class="fil" type="date" name="MONTH" placeholder="Enter Month" required>
+
+            <label for="naem">rent</label>
+            <input class="fil" type="text" name="rent" placeholder="Enter amount" required>
+
+            <label for="naem">Water</label>
+            <input class="fil" type="text" name="WATER" placeholder="Enter Amount" required>
+
+            <label for="naem">wifi</label>
+            <input class="fil" type="text" name="wifi" placeholder="enter amount">
+
+            <label for="naem">eletricity</label>
+            <input class="fil" type="text" name="eletricity" placeholder="Enter amount" required>
+
+            <label for="naem">payment mode</label>
+            <input class="fil" type="text" name="paymentmode" placeholder="Cash Or Upi" required>
+
+            <label for="">extra expence</label>
+            <textarea name="description" id="" cols="30" rows="10" placeholder="About Product" required></textarea>
+
+            <button class="click">Submit &#10132;</button>
+            
+           
+
+        </form>
+        </center>
+      
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzcKBx7obHxp7wsO1cuX1gckFzM6tzwVTCWgalH06DgQTSZ2xAR_UOe3DpUSpvQjbP5/exec'
+        const form = document.forms['product']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+    <br>
+</body>
+</html>
